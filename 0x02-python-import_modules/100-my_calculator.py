@@ -11,6 +11,7 @@ if __name__ == "__main__":
     a = int(sys.argv[1])
     op = sys.argv[2]
     b = int(sys.argv[3])
+    
     if op is '+':
         print("{} {} {} = {}".format(a, op, b, add(a, b)))
     elif op is '-':
