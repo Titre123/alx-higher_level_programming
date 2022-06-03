@@ -13,8 +13,14 @@ if __name__ == "__main__":
     b = int(sys.argv[3])
 
     op_list = ["+", "-", "*", "/"]
-    if op in op_list:
+    if op is '+':
         print("{} {} {} = {}".format(a, op, b, add(a, b)))
+    elif op is '-':
+        print("{} {} {} = {}".format(a, op, b, sub(a, b)))
+    elif op is '*':
+        print("{} {} {} = {}".format(a, op, b, mul(a, b)))
+    elif op is '/':
+        print("{} {} {} = {}".format(a, op, b, div(a, b)))
     else:
         print("Unknown operator. Available operators: +, -, * and /")
         exit(1)
