@@ -16,11 +16,11 @@ if __name__ == "__main__":
     if op in op_list and op =='+':
         print("{} {} {} = {}".format(a, op, b, add(a, b)))
     elif op in op_list and op =='-':
-        print("{} {} {} = {}".format(a, op, b, add(a, b)))
+        print("{} {} {} = {}".format(a, op, b, sub(a, b)))
     elif op in op_list and op =='*':
-        print("{} {} {} = {}".format(a, op, b, add(a, b)))
+        print("{} {} {} = {}".format(a, op, b, mul(a, b)))
     elif op in op_list and op =='/':
-        print("{} {} {} = {}".format(a, op, b, add(a, b)))
+        print("{} {} {} = {}".format(a, op, b, div(a, b)))
     else:
         print("Unknown operator. Available operators: +, -, * and /")
         exit(1)
