@@ -2,84 +2,83 @@
 '''Module documentation'''
 
 
-class Square:
-    """Represents a square.
-    Private instance attribute: size:
-        - property def size(self)
-        - property setter def size(self, value)
-    Private instance attribute: position:
-        - property def position(self)
-        - property setter def position(self, value)
-    Instantiation with optional size and optional position.
-    Public instance method: def area(self).
-    Public instance method: def my_print(self).
+class Node:
+    """Node of a singly linked list.
+    Private instance attribute: data:
+        - property def data(self)
+        - property setter def data(self, value)
+    Private instance attribute: next_node:
+        - property def next_node(self)
+        - property setter def next_node(self, value)
+    Instantiation with data and next_node.
     """
 
-    def __init__(self, size=0, position=(0, 0)):
-        """Initializes the data."""
-        self.__size = size
-        self.__position = position
+    def __init__(self, data, next_node=None):
+        """Initializes the data of the node."""
+        self.data = data
+        self.next_node = next_node
+
+    @property
+    def data(self):
+        """Retrieves the data from the node."""
+        return self.__data
+
+    @data.setter
+    def data(self, value):
+        """Sets the data into a node."""
+        if not isinstance(value, int):
+            raise TypeError("data must be an integer")
+        self.__data = value
+
+    @property
+    def next_node(self):
+        """Retrieves the next_node."""
+        return self.__next_node
+
+    @next_node.setter
+    def next_node(self, value):
+        """Sets the next_node."""
+        if not isinstance(value, Node) and value is not None:
+            raise TypeError("next_node must be a Node object")
+        self.__next_node = value
+
+
+class SinglyLinkedList:
+    """ Singly linked list.
+    Private instance attribute: head.
+    Simple instantiation.
+    Public instance method: def sorted_insert(self, value).
+    """
+
+    def __init__(self):
+        """Initializes the linked list."""
+        self.head = None
 
     def __str__(self):
-        """Str method for print from main module."""
+        """For the print statement in the main file."""
         my_str = ""
-        if self.__size == 0:
-            return ''
-        else:
-            my_str += '\n' * self.__position[1]
-            for i in range(0, self.__size):
-                my_str += ' ' * self.__position[0]
-                my_str += '#' * self.__size
-                my_str += '\n'
-            return my_str[:-1]
+        node = self.head
+        while node:
+            my_str += str(node.data)
+            my_str += '\n'
+            node = node.next_node
+        return my_str[:-1]
 
-    @property
-    def size(self):
-        """Retrieves the size."""
-        return self.__size
+    def sorted_insert(self, value):
+        """Inserts a node in a sorted linked list."""
+        new_node = Node(value)
 
-    @size.setter
-    def size(self, value):
-        """Sets the size to a value."""
-        if not isinstance(value, int):
-            raise TypeError("size must be an integer")
-        elif value < 0:
-            raise ValueError("size must be >= 0")
-        self.__size = value
+        if self.head is None:
+            self.head = new_node
+            return
 
-    @property
-    def position(self):
-        """Retrieves the position."""
-        return self.__position
+        if value < self.head.data:
+            new_node.next_node = self.head
+            self.head = new_node
+            return
 
-    @position.setter
-    def position(self, value):
-        """Sets the position to a value."""
-        if not isinstance(value, tuple) or len(value) != 2:
-            raise TypeError("position must be a tuple of 2 positive integers")
-        if not isinstance(value[0], int) or not isinstance(value[1], int):
-            raise TypeError("position must be a tuple of 2 positive integers")
-        if value[0] < 0 or value[1] < 0:
-            raise TypeError("position must be a tuple of 2 positive integers")
-        self.__position = value
-
-    def area(self):
-        """Returns the current square area."""
-        return self.__size ** 2
-
-    def my_print(self):
-        """Prints to stdout the square with the character #,
-        at the position given by the position attribute.
-        """
-        if self.__size == 0:
-            print()
-        else:
-            for y in range(0, self.__position[1]):
-                print()
-            for i in range(0, self.__size):
-                for x in range(0, self.__position[0]):
-                    print(" ", end="")
-                for j in range(0, self.__size):
-                    print("#", end="")
-                print()
-            return ''
+        node = self.head
+        while node.next_node and node.next_node.data < value:
+            node = node.next_node
+        new_node.next_node = node.next_node
+        node.next_node = new_node
