@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-''' Module 2 Documentation'''
+''' Module Documentation'''
 
 
 class Rectangle:
