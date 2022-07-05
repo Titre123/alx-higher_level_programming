@@ -1,11 +1,17 @@
 #!/usr/bin/python3
-'''Module 5-base_geometry.py
-create empty class
+'''Module 6-base_geometry.py
+Add area method to the basegrometry
 '''
 
 
 class BaseGeometry:
     '''
-    create an emty class BaseGeometry
+    Public instance method:
+        - def area(self)
     '''
-    pass
+
+    def area(self):
+        '''
+        Public instance method
+        '''
+        raise Exception('Public instance method')
