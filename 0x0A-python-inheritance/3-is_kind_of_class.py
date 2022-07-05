@@ -5,9 +5,6 @@ instance of a class that inherited from, the specified class.
 '''
 
 
-from sqlalchemy import Float
-
-
 def is_kind_of_class(obj, a_class):
     '''
     return True if obj is an instance of a_class or a superclass
