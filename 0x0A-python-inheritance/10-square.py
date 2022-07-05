@@ -32,3 +32,4 @@ class Square(Rectangle):
         """Computes the area of a Square instance.
         Overwrites the area() method from Rectangle.
         """
+        return self.__size ** 2
