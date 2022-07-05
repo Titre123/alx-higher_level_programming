@@ -24,6 +24,7 @@ class Square(Rectangle):
 
         self.integer_validator("size", size)
         Rectangle.__init__(size, size)
+        self.__size = size
 
     def __str__(self):
         return super().__str__()
