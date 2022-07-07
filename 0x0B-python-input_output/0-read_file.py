@@ -12,5 +12,5 @@ def read_file(filename=""):
     Args
         - filename: name of the file
     '''
-    with open(file='filename', encoding='utf-8') as file:
+    with open(file='filename') as file:
         print(file.read(), end="")
