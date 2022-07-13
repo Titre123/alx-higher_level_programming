@@ -142,6 +142,7 @@ class Rectangle(Base):
                     self.__x = value
                 if key == "y":
                     self.__y = value
+
     def to_dictionary(self):
         '''
         return a dictionary of Rectangle instance
