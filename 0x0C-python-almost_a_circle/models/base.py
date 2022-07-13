@@ -75,12 +75,12 @@ class Base:
             - json_string: string to convert to list
         """
 
-        l = []
+        new_l = []
         if json_string is not None and json_string != '':
             if type(json_string) != str:
                 raise TypeError("json_string must be a string")
-            l = json.loads(json_string)
-        return l
+            new_l = json.loads(json_string)
+        return new_l
 
     @classmethod
     def create(cls, **dictionary):
@@ -103,15 +103,15 @@ class Base:
         """Returns a list of instances."""
 
         filename = cls.__name__ + ".json"
-        l = []
+        new_l = []
         list_dicts = []
         if os.path.exists(filename):
             with open(filename, 'r') as f:
                 s = f.read()
                 list_dicts = cls.from_json_string(s)
                 for d in list_dicts:
-                    l.append(cls.create(**d))
-        return l
+                    new_l.append(cls.create(**d))
+        return new_l
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
@@ -122,8 +122,8 @@ class Base:
             - list_objs: list of instances
         """
 
-        if (type(list_objs) is not list and list_objs is not None or 
-        not all(isinstance(x, cls) for x in list_objs)):
+        if (type(list_objs) is not list and list_objs is not None or
+           not all(isinstance(x, cls) for x in list_objs)):
             raise TypeError("list_objs must be a list of instances")
 
         filename = cls.__name__ + ".csv"
@@ -146,7 +146,7 @@ class Base:
         """
 
         filename = cls.__name__ + ".csv"
-        l = []
+        new_l = []
         if os.path.exists(filename):
             with open(filename, 'r') as f:
                 reader = csv.reader(f, delimiter=',')
@@ -160,8 +160,8 @@ class Base:
                         for j, e in enumerate(row):
                             if e:
                                 setattr(i, fields[j], int(e))
-                        l.append(i)
-        return l
+                        new_l.append(i)
+        return new_l
 
     @staticmethod
     def draw(list_rectangles, list_squares):
