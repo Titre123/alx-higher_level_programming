@@ -1,4 +1,4 @@
-
+#!/usr/bin/python3
 '''
 Module : square
 square script inheriting from base and rectangle'''
