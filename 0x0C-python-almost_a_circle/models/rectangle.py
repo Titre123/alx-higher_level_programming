@@ -21,7 +21,7 @@ class Rectangle(Base):
             - x
             - y
 
-        public instance 
+        public instance
             - area
         '''
         super().__init__(id)
@@ -110,8 +110,8 @@ class Rectangle(Base):
     def __str__(self):
         '''
         display instance of Rectangle to user'''
-        return '[Rectangle] ({}) {}/{} - {}/{}'.format(self.id, 
-        self.__x, self.__y, self.__width, self.__height)
+        return '[Rectangle] ({}) {}/{} - {}/{}'.format(
+            self.id, self.__x, self.__y, self.__width, self.__height)
 
     def update(self, *args, **kwargs):
         '''Update the value of instance attributes'''
@@ -147,6 +147,6 @@ class Rectangle(Base):
         '''
         return a dictionary of Rectangle instance
         '''
-        my_dict = {'x': self.__x, 'y': self.__y, 'id': self.id, 
-        'height': self.__height, 'width': self.__width}
+        my_dict = {'x': self.__x, 'y': self.__y, 'id': self.id,
+                   'height': self.__height, 'width': self.__width}
         return my_dict
