@@ -24,11 +24,11 @@ class Rectangle(Base):
         public instance
             - area
         '''
-        super().__init__(id)
         self.__width = width
         self.__height = height
         self.__x = x
         self.__y = y
+        super().__init__(id)
 
     @property
     def width(self):
@@ -38,7 +38,7 @@ class Rectangle(Base):
     @width.setter
     def width(self, value):
         ''' width setter'''
-        if type(value) == int:
+        if type(value) is not int:
             raise TypeError("width must be an integer")
 
         if value <= 0:
@@ -53,7 +53,7 @@ class Rectangle(Base):
     @height.setter
     def height(self, value):
         ''' height setter'''
-        if type(value) == int:
+        if type(value) is not int:
             raise TypeError("height must be an integer")
 
         if value <= 0:
@@ -68,7 +68,7 @@ class Rectangle(Base):
     @x.setter
     def x(self, value):
         ''' x setter'''
-        if type(value) == int:
+        if type(value) is not int:
             raise TypeError("x must be an integer")
 
         if value < 0:
@@ -83,7 +83,7 @@ class Rectangle(Base):
     @y.setter
     def y(self, value):
         ''' y setter'''
-        if type(value) == int:
+        if type(value) is not int:
             raise TypeError("y must be an integer")
 
         if value < 0:
@@ -142,7 +142,6 @@ class Rectangle(Base):
                     self.__x = value
                 if key == "y":
                     self.__y = value
-
     def to_dictionary(self):
         '''
         return a dictionary of Rectangle instance
