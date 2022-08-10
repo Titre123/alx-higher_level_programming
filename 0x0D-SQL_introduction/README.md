@@ -3,8 +3,8 @@
 ## Table of contents
 Files | Description
 ----- | -----------
-[0-list_databases.sql](./0-list_databases.sql) | sql script that lists all databases of your MySQL server
-[1-create_database_if_missing.sql](./1-create_database_if_missing.sql) | sql script that creates the database hbtn_0c_0 in your MySQL server
+[0-list_databases.sql](https://github.com/Titre123/alx-higher_level_programming/blob/master/0x0D-SQL_introduction/0-list_databases.sql) | sql script that lists all databases of your MySQL server
+[1-create_database_if_missing.sql](https://github.com/Titre123/alx-higher_level_programming/blob/master/0x0D-SQL_introduction/1-create_database_if_missing.sql) | sql script that creates the database hbtn_0c_0 in your MySQL server
 [2-remove_database.sql](./2-remove_database.sql) | sql script that deletes the database hbtn_0c_0 in your MySQL server
 [3-list_tables.sql](./3-list_tables.sql) | sql script that lists all the tables of a database in your MySQL server
 [4-first_table.sql](./4-first_table.sql) | sql script that creates a table called first_table in the current database in your MySQL server
