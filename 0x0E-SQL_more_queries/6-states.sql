@@ -4,4 +4,4 @@ CREATE DATABASE IF NOT EXISTS hbtn_0d_usa;
 -- use a database
 USE hbtn_0d_usa;
 -- creates a table that set id to int and name to varchar(256) types
-CREATE TABLE IF NOT EXISTS states (id INT UNIQUE NOT NULL AUTO_INCREMENT, name VARCHAR(256) NOT NULL), PRIMARY KEY(ID));
+CREATE TABLE IF NOT EXISTS states (id INT UNIQUE NOT NULL AUTO_INCREMENT, name VARCHAR(256) NOT NULL, PRIMARY KEY(ID));
