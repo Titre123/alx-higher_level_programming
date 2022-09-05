@@ -1,7 +1,7 @@
 #!/usr/bin/node
 const args = process.argv;
 
-function add(a, b) {
+function add (a, b) {
     /* This is function takes two arguments and 
     return their sum
     Args-
