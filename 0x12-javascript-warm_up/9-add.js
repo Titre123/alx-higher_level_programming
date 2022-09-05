@@ -8,7 +8,7 @@ function add(a, b) {
         - a
         - b
     */
-    console.log(Number (a) + Number (b));
+  console.log(Number (a) + Number (b));
 }
 
 add(args[2], args[3]);
