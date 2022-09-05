@@ -3,7 +3,7 @@ const args = process.argv;
 
 let largest = 0;
 
-if (args.length === 3){
+if (args.length <= 3){
     largest = 0;
     console.log(largest);
 }
