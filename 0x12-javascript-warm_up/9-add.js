@@ -2,7 +2,7 @@
 const args = process.argv;
 
 function add (a, b) {
-    /* This is function takes two arguments and 
+    /* This is function takes two arguments and
     return their sum
     Args-
         - a
