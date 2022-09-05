@@ -7,7 +7,7 @@ if (!Number(args[2])) {
   for (let i = 0; i < args[2]; i++) {
     let Var = '';
     for (let j = 0; j < args[2]; j++) {
-      Var += `X`;
+      Var += 'X';
     }
     console.log(Var);
   }
