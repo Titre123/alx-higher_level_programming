@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-const list = require('./100-data').list;
+import {list} from './100-data';
 
 const array = list.map((item, index) => item * index);
 
