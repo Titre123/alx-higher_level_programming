@@ -4,17 +4,21 @@ lists all states from the database hbtn_0e_0_usa
 """
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     import MySQLdb
     import sys
+    args = sys.argv
 
-    db = MySQLdb.connect(host="localhost", port=3306, user=sys.argv[1],
-                         passwd=sys.argv[2], db=sys.argv[3], charset="utf8")
+    db = MySQLdb.connect(host="localhost", port=3306,
+                         user=args[1], passwd=args[2], db=args[3])
+
+    state_name = args[4]
+
     cur = db.cursor()
-    cur.execute("SELECT * FROM states WHERE name=%s ORDER BY id ",
-                (sys.argv[4], ))
-    result = cur.fetchall()
-    for row in result:
+    cur.execute(f"""SELECT id, name FROM states WHERE name =\
+                '{state_name}' ORDER BY states.id ASC;""")
+    rows = cur.fetchall()
+    for row in rows:
         print(row)
     cur.close()
     db.close()
