@@ -4,17 +4,23 @@ lists all states from the database hbtn_0e_0_usa
 """
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     import MySQLdb
     import sys
+    args = sys.argv
 
-    db = MySQLdb.connect(host="localhost", port=3306, user=sys.argv[1],
-                         passwd=sys.argv[2], db=sys.argv[3], charset="utf8")
+    db = MySQLdb.connect(host="localhost", port=3306,
+                         user=args[1], passwd=args[2], db=args[3])
+
+    state_name = args[4]
+
     cur = db.cursor()
-    cur.execute("SELECT cities.name FROM cities RIGHT JOIN states"
-                " ON cities.state_id = states.id WHERE "
-                "states.name = '{}'".format(sys.argv[4], ))
-    result = cur.fetchall()
-    print(", ".join(row[0] for row in result))
+    cur.execute(f"""SELECT cities.name FROM cities\
+        INNER JOIN states ON tates.id = cities.state_id\
+             WHERE state.name == '{state_name}' ORDER BY\
+            cities.id ASC""")
+    rows = cur.fetchall()
+    new_row = ["".join(row) for row in rows]
+    print(", ".join(new_row))
     cur.close()
     db.close()
