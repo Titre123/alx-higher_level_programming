@@ -5,22 +5,20 @@ lists all states from the database hbtn_0e_0_usa
 
 
 if __name__ == '__main__':
+
     import MySQLdb
     import sys
-    args = sys.argv
 
-    db = MySQLdb.connect(host="localhost", port=3306,
-                         user=args[1], passwd=args[2], db=args[3])
-
-    state_name = args[4]
+    db = MySQLdb.connect(host='localhost', port=3306,
+                         user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
 
     cur = db.cursor()
-    cur.execute(f"""SELECT cities.name FROM cities\
-        INNER JOIN states ON tates.id = cities.state_id\
-             WHERE state.name == '{state_name}' ORDER BY\
-            cities.id ASC""")
+    cur.execute("SELECT cities.name\
+                FROM cities LEFT JOIN states\
+                ON states.id = cities.state_id\
+                WHERE states.name = %s\
+                ORDER BY cities.id ASC", (sys.argv[4],))
     rows = cur.fetchall()
-    new_row = ["".join(row) for row in rows]
-    print(", ".join(new_row))
+    print(", ".join([row[0] for row in rows]))
     cur.close()
     db.close()
