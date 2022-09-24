@@ -13,5 +13,4 @@ if __name__ == "__main__":
         print('None')
     else:
         for commits in r.json()[:10]:
-            print("{}: {}".format(commits.get('sha'),
-                                  commits.get('commit').get('author').get('name')))
+            print(f"{commits.get('sha')}: {commits.get('commit').get('author').get('name')}")
