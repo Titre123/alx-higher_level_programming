@@ -12,7 +12,7 @@ if __name__ == "__main__":
     args = sys.argv
     value = {}
     if args[1]:
-        value = {'q': args[2]}
+        value = {'q': args[1]}
     else:
         value = {'q': ""}
     r = requests.post('http://0.0.0.0:5000/search_user', data=value)
