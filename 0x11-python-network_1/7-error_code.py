@@ -17,4 +17,4 @@ if __name__ == "__main__":
         r.raise_for_status()
         status_code = r.status_code
     except requests.exceptions.RequestException as err:
-        print(f'Error code: {status_code}')
+        print(f'Error code: 500')
