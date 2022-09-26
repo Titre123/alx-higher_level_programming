@@ -9,17 +9,12 @@
 import requests
 import sys
 if __name__ == "__main__":
-    args = sys.argv
-    value = {}
-    if args[1]:
-        value = {'q': args[1]}
-    else:
-        value = {'q': ""}
-    r = requests.post('http://0.0.0.0:5000/search_user', data=value)
+     q = sys.argv[1] if len(sys.argv) > 1 else ""
+    r = requests.post('http://0.0.0.0:5000/search_user', data={'q': q})
     try:
-        r = r.json()
-        if r:
-            print(f"[{r.get(id)}] {r.get(name)}")
+        d = r.json()
+        if d:
+            print(f"[{d.get(id)}] {d.get(name)}")
         else:
             print("No result")
     except ValueError:
