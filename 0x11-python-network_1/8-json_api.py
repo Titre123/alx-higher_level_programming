@@ -19,7 +19,7 @@ if __name__ == "__main__":
     try:
         r = r.json()
         if r:
-            print(f"[{r.id}] {r.name}")
+            print(f"[{r.get(id)}] {r.get(name)}")
         else:
             print("No result")
     except ValueError:
