@@ -13,6 +13,7 @@ if __name__ == "__main__":
     args = sys.argv
     try:
         r = requests.get(args[1])
+        print(r.text)
         r.raise_for_status()
         status_code = r.status_code
     except requests.exceptions.RequestException as err:
