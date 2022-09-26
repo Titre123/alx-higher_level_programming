@@ -13,3 +13,4 @@ if __name__ == "__main__":
     args = sys.argv
     data = {'email': args[2]}
     r = requests.post(args[1], data = data)
+    r = r.text
