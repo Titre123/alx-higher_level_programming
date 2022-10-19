@@ -11,9 +11,8 @@ import sys
 if __name__ == "__main__":
     status_code = None
     args = sys.argv
-    try:
-        r = requests.get(args[1])
-        r.raise_for_status()
-        status_code = r.status_code
-    except requests.exceptions.RequestException as err:
-        print(f'Error code: {status_code}')
+    r = requests.get(args[1])
+    if r.status_code >= 400:
+        print(f"Error code: {r.status_code}")
+    else:
+        print(r.text)
