@@ -1,1 +1,3 @@
-document.querySelector('header').style.color = '#FF0000';
+windows.addEventListener(function() {
+  document.querySelector('header').style.color = '#FF0000';
+})
